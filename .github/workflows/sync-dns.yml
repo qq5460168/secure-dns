@@ -1,0 +1,36 @@
+name: 自动加载自定义DNS供应商
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # 每天 UTC 0点运行（北京时间 8点）
+  workflow_dispatch:     # 允许手动点一下运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 设置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 运行DNS加载脚本
+        run: node load-dns.js
+
+      - name: 提交更新（如果vendors.json有变化）
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add vendors/vendors.json
+          git diff --staged --exit-code || git commit -m "🤖 自动更新DNS供应商列表"
+
+      - name: 推送到仓库
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

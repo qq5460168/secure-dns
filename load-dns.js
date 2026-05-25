@@ -120,5 +120,5 @@ function mergeToCoreVendors() {
 const customDnsVendors = loadCustomDnsVendors();
 console.log('加载的自定义DNS供应商：', customDnsVendors);
 
-// 可选：合并到核心文件（如需持久化）
-// mergeToCoreVendors();
+// 以前是注释掉的，现在打开它
+mergeToCoreVendors();
