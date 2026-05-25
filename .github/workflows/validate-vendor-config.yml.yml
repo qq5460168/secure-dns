@@ -1,0 +1,74 @@
+name: Validate Vendor Configs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'vendors-config/*.txt'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'vendors-config/*.txt'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate vendor configs
+        run: |
+          echo "🔍 Validating vendor configuration files..."
+          
+          # Check for TEMPLATE.txt
+          if [ ! -f "vendors-config/TEMPLATE.txt" ]; then
+            echo "❌ TEMPLATE.txt not found!"
+            exit 1
+          fi
+          
+          # Check all .txt files except TEMPLATE
+          for file in vendors-config/*.txt; do
+            if [ "$file" = "vendors-config/TEMPLATE.txt" ]; then
+              continue
+            fi
+            
+            echo "Validating: $file"
+            
+            # Check required fields
+            required_fields=("供应商唯一标识符" "供应商名称" "详细描述")
+            for field in "${required_fields[@]}"; do
+              if ! grep -q "^$field:" "$file"; then
+                echo "❌ Missing required field: $field in $file"
+                exit 1
+              fi
+            done
+            
+            # Check at least one DNS service (DoH or DoT)
+            if ! grep -q "^DoH 链接:" "$file" && ! grep -q "^DoT 链接:" "$file"; then
+              echo "❌ Missing DoH or DoT configuration in $file"
+              exit 1
+            fi
+            
+            echo "✅ $file is valid"
+          done
+          
+          echo "✅ All vendor configs are valid!"
+
+      - name: Check for duplicates
+        run: |
+          echo "🔍 Checking for duplicate vendor IDs..."
+          
+          vendor_ids=$(grep "^供应商唯一标识符:" vendors-config/*.txt | cut -d: -f2 | sort)
+          unique_ids=$(echo "$vendor_ids" | sort -u)
+          
+          if [ "$(echo "$vendor_ids" | wc -l)" != "$(echo "$unique_ids" | wc -l)" ]; then
+            echo "❌ Duplicate vendor IDs detected!"
+            echo "$vendor_ids"
+            exit 1
+          fi
+          
+          echo "✅ No duplicate vendor IDs found"
