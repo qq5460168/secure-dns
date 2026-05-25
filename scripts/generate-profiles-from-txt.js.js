@@ -1,21 +1,16 @@
-ï»¿#!/usr/bin/env node
+#!/usr/bin/env node
 
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-// Directories
 const vendorsConfigDir = path.join(__dirname, '..', 'vendors-config');
 const profilesDir = path.join(__dirname, '..', 'profiles');
 
-// Ensure profiles directory exists
 if (!fs.existsSync(profilesDir)) {
   fs.mkdirSync(profilesDir, { recursive: true });
 }
 
-/**
- * Generate a UUID v4
- */
 function generateUUID() {
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
     const r = (Math.random() * 16) | 0;
@@ -24,9 +19,6 @@ function generateUUID() {
   });
 }
 
-/**
- * Escape XML special characters
- */
 function escapeXml(str) {
   return String(str)
     .replace(/&/g, '&amp;')
@@ -36,9 +28,6 @@ function escapeXml(str) {
     .replace(/'/g, '&apos;');
 }
 
-/**
- * Parse vendor configuration from text file
- */
 function parseVendorConfig(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
   const config = {};
@@ -50,14 +39,11 @@ function parseVendorConfig(filePath) {
   for (const line of lines) {
     const trimmedLine = line.trim();
     
-    // Skip empty lines and comments
     if (!trimmedLine || trimmedLine.startsWith('#')) {
       continue;
     }
     
-    // Check if this is a key line (ends with :)
     if (trimmedLine.includes(':') && !trimmedLine.startsWith('  ')) {
-      // Save previous key if exists
       if (currentKey) {
         config[currentKey] = currentValue.join('\n').trim();
       }
@@ -69,12 +55,10 @@ function parseVendorConfig(filePath) {
       currentKey = key;
       currentValue = value ? [value] : [];
     } else if (currentKey && trimmedLine) {
-      // Continuation of current key
       currentValue.push(trimmedLine);
     }
   }
   
-  // Save last key
   if (currentKey) {
     config[currentKey] = currentValue.join('\n').trim();
   }
@@ -82,11 +66,8 @@ function parseVendorConfig(filePath) {
   return config;
 }
 
-/**
- * Validate required fields
- */
 function validateConfig(config, fileName) {
-  const required = ['ä¾›åº”å•†å”¯ä¸€æ ‡è¯†ç¬¦', 'ä¾›åº”å•†åç§°', 'è¯¦ç»†æè¿°'];
+  const required = ['¹©Ó¦ÉÌÎ¨Ò»±êÊ¶·û', '¹©Ó¦ÉÌÃû³Æ', 'ÏêÏ¸ÃèÊö'];
   
   for (const field of required) {
     if (!config[field] || config[field].trim() === '') {
@@ -94,19 +75,14 @@ function validateConfig(config, fileName) {
     }
   }
   
-  // Check at least one DNS service
-  if (!config['DoH é“¾æŽ¥'] && !config['DoT é“¾æŽ¥']) {
+  if (!config['DoH Á´½Ó'] && !config['DoT Á´½Ó']) {
     throw new Error(`Missing DoH or DoT configuration in ${fileName}`);
   }
 }
 
-/**
- * Parse DNS server configuration
- */
 function parseServers(dohConfig, dotConfig) {
   const servers = [];
   
-  // Parse DoH
   if (dohConfig) {
     const lines = dohConfig.split('\n').filter(l => l.trim());
     for (const line of lines) {
@@ -119,7 +95,6 @@ function parseServers(dohConfig, dotConfig) {
     }
   }
   
-  // Parse DoT
   if (dotConfig) {
     const lines = dotConfig.split('\n').filter(l => l.trim());
     for (const line of lines) {
@@ -135,22 +110,18 @@ function parseServers(dohConfig, dotConfig) {
   return servers;
 }
 
-/**
- * Generate mobileconfig XML
- */
 function generateMobileConfig(config) {
-  const vendorId = config['ä¾›åº”å•†å”¯ä¸€æ ‡è¯†ç¬¦'].trim();
-  const vendorName = config['ä¾›åº”å•†åç§°'].trim();
-  const description = config['è¯¦ç»†æè¿°'].trim();
+  const vendorId = config['¹©Ó¦ÉÌÎ¨Ò»±êÊ¶·û'].trim();
+  const vendorName = config['¹©Ó¦ÉÌÃû³Æ'].trim();
+  const description = config['ÏêÏ¸ÃèÊö'].trim();
   const parentUUID = generateUUID().toUpperCase();
   const dnsUUID = generateUUID().toUpperCase();
   
   const servers = parseServers(
-    config['DoH é“¾æŽ¥'],
-    config['DoT é“¾æŽ¥']
+    config['DoH Á´½Ó'],
+    config['DoT Á´½Ó']
   );
   
-  // Build DNS server entries
   let serverEntries = '';
   for (const server of servers) {
     if (server.protocol === 'HTTPS') {
@@ -176,7 +147,6 @@ function generateMobileConfig(config) {
     }
   }
   
-  // Get unique protocols
   const protocols = [...new Set(servers.map(s => s.protocol))];
   let protocolArray = '';
   for (const protocol of protocols) {
@@ -240,14 +210,11 @@ function generateMobileConfig(config) {
   return xml;
 }
 
-/**
- * Main function
- */
 function main() {
-  console.log('ðŸš€ Generating DNS profiles from vendor configs...\n');
+  console.log('?? Generating DNS profiles from vendor configs...\n');
   
   if (!fs.existsSync(vendorsConfigDir)) {
-    console.error('âŒ vendors-config directory not found!');
+    console.error('? vendors-config directory not found!');
     process.exit(1);
   }
   
@@ -255,7 +222,7 @@ function main() {
     .filter(f => f.endsWith('.txt') && f !== 'TEMPLATE.txt');
   
   if (files.length === 0) {
-    console.log('â„¹ï¸  No vendor configuration files found.');
+    console.log('??  No vendor configuration files found.');
     return;
   }
   
@@ -268,7 +235,7 @@ function main() {
     const outputFile = path.join(profilesDir, `${vendorId}.mobileconfig`);
     
     try {
-      console.log(`ðŸ“ Processing: ${file}`);
+      console.log(`?? Processing: ${file}`);
       
       const config = parseVendorConfig(filePath);
       validateConfig(config, file);
@@ -276,15 +243,15 @@ function main() {
       const mobileConfig = generateMobileConfig(config);
       fs.writeFileSync(outputFile, mobileConfig, 'utf8');
       
-      console.log(`âœ… Generated: ${vendorId}.mobileconfig\n`);
+      console.log(`? Generated: ${vendorId}.mobileconfig\n`);
       successCount++;
     } catch (error) {
-      console.error(`âŒ Error processing ${file}: ${error.message}\n`);
+      console.error(`? Error processing ${file}: ${error.message}\n`);
       errorCount++;
     }
   }
   
-  console.log(`\nðŸ“Š Summary: ${successCount} succeeded, ${errorCount} failed`);
+  console.log(`\n?? Summary: ${successCount} succeeded, ${errorCount} failed`);
   
   if (errorCount > 0) {
     process.exit(1);
