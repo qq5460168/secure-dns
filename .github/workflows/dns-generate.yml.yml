@@ -1,0 +1,25 @@
+name: 自动生成DNS描述文件
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天 0 点运行（UTC时间）
+  workflow_dispatch:    # 允许手动点击运行
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 运行生成脚本
+        run: python generate.py
+
+      - name: 提交并推送更新
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: '自动更新DNS描述文件'
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
