@@ -484,6 +484,32 @@
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
+      <!-- 酷安我将立于天上 -->
+      <dict>
+        <key>DNSSettings</key>
+        <dict>
+          <key>DNSProtocol</key>
+          <string>TLS</string>
+          <key>ServerName</key>
+          <string>ag.speedtest.938388.xyz</string>
+          <key>ServerPort</key>
+          <integer>853</integer>
+          <key>ProxiesAllowed</key>
+          <true/>
+        </dict>
+        <key>PayloadDescription</key>
+        <string>酷安我将立于天上 加密DNS</string>
+        <key>PayloadDisplayName</key>
+        <string>酷安我将立于天上</string>
+        <key>PayloadIdentifier</key>
+        <string>com.apple.dnsSettings.managed.79cb80d8-e96f-5da2-adab-750906db46fa</string>
+        <key>PayloadType</key>
+        <string>com.apple.dnsSettings.managed</string>
+        <key>PayloadUUID</key>
+        <string>79cb80d8-e96f-5da2-adab-750906db46fa</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+      </dict>
     </array>
     <key>PayloadDescription</key>
     <string>多组DoH/DoT加密DNS解析配置，兼容WiFi/蜂窝网络</string>
