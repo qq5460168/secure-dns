@@ -21,3 +21,4 @@ ALEX           | DoT | ns1.amazehome.xyz:853
 舟摇客         | DoT | adlong.top:853
 234实验室      | DoT | dns.23-4.cn:853
 234实验室      | DoH | https://dns.23-4.cn/dns-query
+酷安我将立于天上      | DoT | ag.speedtest.938388.xyz:853
