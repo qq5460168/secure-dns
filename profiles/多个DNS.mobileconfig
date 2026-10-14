@@ -180,7 +180,7 @@
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
-      <!-- 酷安DDIF童话镇 -->
+      <!-- 酷安DDIF童话镇Doh -->
       <dict>
         <key>DNSSettings</key>
         <dict>
@@ -192,15 +192,15 @@
           <true/>
         </dict>
         <key>PayloadDescription</key>
-        <string>酷安DDIF童话镇 加密DNS</string>
+        <string>酷安DDIF童话镇Doh 加密DNS</string>
         <key>PayloadDisplayName</key>
-        <string>酷安DDIF童话镇</string>
+        <string>酷安DDIF童话镇Doh</string>
         <key>PayloadIdentifier</key>
-        <string>com.apple.dnsSettings.managed.aeebd645-da25-5980-9775-a4636b7ad6a6</string>
+        <string>com.apple.dnsSettings.managed.95f0eb36-e6ad-5f98-8add-fe3dca8a370d</string>
         <key>PayloadType</key>
         <string>com.apple.dnsSettings.managed</string>
         <key>PayloadUUID</key>
-        <string>aeebd645-da25-5980-9775-a4636b7ad6a6</string>
+        <string>95f0eb36-e6ad-5f98-8add-fe3dca8a370d</string>
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
@@ -282,7 +282,7 @@
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
-      <!-- 枫林 -->
+      <!-- 枫林doh -->
       <dict>
         <key>DNSSettings</key>
         <dict>
@@ -294,15 +294,15 @@
           <true/>
         </dict>
         <key>PayloadDescription</key>
-        <string>枫林 加密DNS</string>
+        <string>枫林doh 加密DNS</string>
         <key>PayloadDisplayName</key>
-        <string>枫林</string>
+        <string>枫林doh</string>
         <key>PayloadIdentifier</key>
-        <string>com.apple.dnsSettings.managed.1a4abb0d-5c8f-5203-a8dc-22c0f14aa389</string>
+        <string>com.apple.dnsSettings.managed.94294f2e-208a-59a9-94c7-a0a2f0556e5c</string>
         <key>PayloadType</key>
         <string>com.apple.dnsSettings.managed</string>
         <key>PayloadUUID</key>
-        <string>1a4abb0d-5c8f-5203-a8dc-22c0f14aa389</string>
+        <string>94294f2e-208a-59a9-94c7-a0a2f0556e5c</string>
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
@@ -384,7 +384,7 @@
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
-      <!-- 舟摇客 -->
+      <!-- 舟摇客doh -->
       <dict>
         <key>DNSSettings</key>
         <dict>
@@ -396,15 +396,15 @@
           <true/>
         </dict>
         <key>PayloadDescription</key>
-        <string>舟摇客 加密DNS</string>
+        <string>舟摇客doh 加密DNS</string>
         <key>PayloadDisplayName</key>
-        <string>舟摇客</string>
+        <string>舟摇客doh</string>
         <key>PayloadIdentifier</key>
-        <string>com.apple.dnsSettings.managed.0201017c-13c3-5e86-b099-2cc08cfc4c5c</string>
+        <string>com.apple.dnsSettings.managed.eb94349e-2baa-5945-89ca-b09dc779c23d</string>
         <key>PayloadType</key>
         <string>com.apple.dnsSettings.managed</string>
         <key>PayloadUUID</key>
-        <string>0201017c-13c3-5e86-b099-2cc08cfc4c5c</string>
+        <string>eb94349e-2baa-5945-89ca-b09dc779c23d</string>
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
@@ -460,7 +460,7 @@
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
-      <!-- 234实验室 -->
+      <!-- 234实验室doh -->
       <dict>
         <key>DNSSettings</key>
         <dict>
@@ -472,15 +472,15 @@
           <true/>
         </dict>
         <key>PayloadDescription</key>
-        <string>234实验室 加密DNS</string>
+        <string>234实验室doh 加密DNS</string>
         <key>PayloadDisplayName</key>
-        <string>234实验室</string>
+        <string>234实验室doh</string>
         <key>PayloadIdentifier</key>
-        <string>com.apple.dnsSettings.managed.d816d564-933a-52c2-a167-66007a9d523b</string>
+        <string>com.apple.dnsSettings.managed.a5fae506-0a0f-5565-8ab2-6e438c43236d</string>
         <key>PayloadType</key>
         <string>com.apple.dnsSettings.managed</string>
         <key>PayloadUUID</key>
-        <string>d816d564-933a-52c2-a167-66007a9d523b</string>
+        <string>a5fae506-0a0f-5565-8ab2-6e438c43236d</string>
         <key>PayloadVersion</key>
         <integer>1</integer>
       </dict>
