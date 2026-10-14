@@ -56,6 +56,7 @@
 | [Quad9 ECS][quad9-dns]                           | 🇨🇭    | 是   | 由 Quad9 基金会运营，支持 ECS，拦截恶意软件                        | [DoH/DoT][quad9-dns-profile]        |
 | [Quad101][quad101-dns]                           | 🇹🇼    | 否   | 由台湾网络资讯中心 (TWNIC) 运营                                    | [DoH/DoT][quad101-dns-profile]      |
 | [Tiarap][tiarap-dns]                             | 🇸🇬 🇺🇸 | 是   | 由 Tiarap 运营，拦截广告、跟踪器、钓鱼网站和恶意软件               | [DoH/DoT][tiarap-dns-profile]       |
+| [我的加密DNS合集][personal-dns]                  | 🇨🇳    | 否   | 个人常用 DoH/DoT 合集（19 条线路，含去广告节点）                  | [DoH/DoT][personal-dns-profile]      |
 
 ## 安装
 
@@ -153,3 +154,5 @@ New-Guid
 [quad101-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/quad101-dns.mobileconfig
 [tiarap-dns]: https://doh.tiar.app
 [tiarap-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/tiarap-dns.mobileconfig
+[personal-dns]: https://github.com/qq5460168/secure-dns
+[personal-dns-profile]: https://github.com/qq5460168/secure-dns/raw/master/profiles/personal-dns.mobileconfig
