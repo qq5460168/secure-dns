@@ -1,0 +1,25 @@
+name: Build DNS profiles
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - dns.txt
+      - scripts/build_profiles.py
+      - .github/workflows/build.yml
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Rebuild mobileconfig from dns.txt
+        run: python scripts/build_profiles.py
+      - name: Commit rebuilt profile
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: profiles/personal-dns.mobileconfig
+          commit_message: "chore: rebuild personal-dns.mobileconfig from dns.txt"
