@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """根据仓库根目录的 dns.txt 重新生成 profiles/多个DNS.mobileconfig。
 
-dns.txt 每行格式：  名称 | DoH/DoT | 地址
+dns.txt 每行格式（空格分隔）：  名称 DoH/DoT 地址
   - DoH 地址填完整 https URL
-  - DoT 地址填 host 或 host:port（缺省端口 853）
+  - DoT 地址填域名即可，默认 853 端口（也可写 域名:端口）
   - 以 # 开头或空行忽略
 
 每个节点的 PayloadUUID 由「名称|协议|地址」确定性生成（uuid5），
@@ -28,14 +28,25 @@ def parse_line(line):
     line = line.strip()
     if not line or line.startswith("#"):
         return None
-    parts = [p.strip() for p in line.split("|")]
-    if len(parts) != 3:
+    parts = line.split()
+    # 找到 DoH / DoT 所在的位置：前面是名称（可含空格），后面是地址
+    proto_idx = None
+    for i, p in enumerate(parts):
+        if p.upper() in ("DOH", "DOT"):
+            proto_idx = i
+            break
+    if proto_idx is None or proto_idx < 1 or proto_idx >= len(parts) - 1:
         return None
-    name, proto, addr = parts
-    return name, proto.upper(), addr
+    name = " ".join(parts[:proto_idx])
+    proto = parts[proto_idx].upper()
+    addr = " ".join(parts[proto_idx + 1:])
+    return name, proto, addr
 
 
 def inner_payload(name, proto, addr):
+    # DoT 未写端口时补 853，保持与历史 UUID 种子一致
+    if proto != "DOH" and ":" not in addr:
+        addr = addr + ":853"
     ident = "{}|{}|{}".format(name, proto, addr)
     u = str(uuid.uuid5(NS, ident))
     out = []
