@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>PayloadDisplayName</key>
+    <string>18Bit DNS</string>
+    <key>PayloadDescription</key>
+    <string>在此设备上使用由 18Bit（十八比特）提供的加密 DNS 解析服务。</string>
+    <key>PayloadIdentifier</key>
+    <string>com.apple.profile.dc991697-50d6-4fd3-a5e3-ee8de2b0cac8</string>
+    <key>PayloadScope</key>
+    <string>System</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>dc991697-50d6-4fd3-a5e3-ee8de2b0cac8</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadContent</key>
+    <array>
+      <!-- 18Bit DNS (DoH) -->
+      <dict>
+        <key>PayloadDisplayName</key>
+        <string>18Bit DNS (DoH)</string>
+        <key>PayloadIdentifier</key>
+        <string>com.apple.dns.320312e2-d605-4242-8a69-36cfb20d56c8</string>
+        <key>PayloadType</key>
+        <string>com.apple.dnsSettings.managed</string>
+        <key>PayloadUUID</key>
+        <string>320312e2-d605-4242-8a69-36cfb20d56c8</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>DNSSettings</key>
+        <dict>
+          <key>DNSProtocol</key>
+          <string>HTTPS</string>
+          <key>ServerAddresses</key>
+          <array>
+            <string>111.170.19.184</string>
+            <string>115.190.191.220</string>
+            <string>36.138.230.22</string>
+            <string>124.220.23.147</string>
+          </array>
+          <key>ServerURL</key>
+          <string>https://doh.18bit.cn/dns-query</string>
+        </dict>
+      </dict>
+      <!-- 18Bit DNS (DoT) -->
+      <dict>
+        <key>PayloadDisplayName</key>
+        <string>18Bit DNS (DoT)</string>
+        <key>PayloadIdentifier</key>
+        <string>com.apple.dns.d2f9a688-1167-4fff-a1ac-6cf558f95385</string>
+        <key>PayloadType</key>
+        <string>com.apple.dnsSettings.managed</string>
+        <key>PayloadUUID</key>
+        <string>d2f9a688-1167-4fff-a1ac-6cf558f95385</string>
+        <key>PayloadVersion</key>
+        <integer>1</integer>
+        <key>DNSSettings</key>
+        <dict>
+          <key>DNSProtocol</key>
+          <string>TLS</string>
+          <key>ServerAddresses</key>
+          <array>
+            <string>111.170.19.184</string>
+            <string>115.190.191.220</string>
+            <string>36.138.230.22</string>
+            <string>124.220.23.147</string>
+          </array>
+          <key>ServerName</key>
+          <string>dns.18bit.cn</string>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>
