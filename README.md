@@ -44,7 +44,7 @@
 | [Cloudflare 1.1.1.1][cloudflare-dns]             | 🇺🇸    | 否   | 由 Cloudflare 运营                                                 | [DoH/DoT][cloudflare-dns-profile]   |
 | [Cloudflare 1.1.1.1 安全][cloudflare-dns-family] | 🇺🇸    | 是   | 由 Cloudflare 运营，拦截恶意软件和钓鱼网站                         | [DoH/DoT][cloudflare-dns-profile]   |
 | [Cloudflare 1.1.1.1 家庭][cloudflare-dns-family] | 🇺🇸    | 是   | 由 Cloudflare 运营，拦截恶意软件、钓鱼网站和成人内容               | [DoH/DoT][cloudflare-dns-profile]   |
-| [DNSPod 公共 DNS][dnspod-dns]                    | 🇨🇳    | 否   | 由腾讯云计算旗下 DNSPod 运营                                       | [DoH/DoT][dnspod-dns-profile]       |
+| [DNSPod 公共 DNS][dnspod-dns]                    | 🇨🇳    | 否   | 由腾讯云计算旗下 DNSPod 运营                                       | [DoH/DoT][dnspod-dns-profile]      |
 | [谷歌公共 DNS][google-dns]                       | 🇺🇸    | 否   | 由谷歌运营                                                         | [DoH/DoT][google-dns-profile]       |
 | [keweonDNS][keweondns]                           | 🇩🇪    | 否   | 由 Aviontex. 拦截广告和跟踪器                                      | [DoH/DoT][keweondns-profile]        |
 | [Mullvad DNS][mullvad-dns]                       | 🇸🇪    | 是   | 由 Mullvad VPN 运营                                                | [DoH/DoT][mullvad-dns-profile]      |
@@ -56,7 +56,7 @@
 | [Quad9 ECS][quad9-dns]                           | 🇨🇭    | 是   | 由 Quad9 基金会运营，支持 ECS，拦截恶意软件                        | [DoH/DoT][quad9-dns-profile]        |
 | [Quad101][quad101-dns]                           | 🇹🇼    | 否   | 由台湾网络资讯中心 (TWNIC) 运营                                    | [DoH/DoT][quad101-dns-profile]      |
 | [Tiarap][tiarap-dns]                             | 🇸🇬 🇺🇸 | 是   | 由 Tiarap 运营，拦截广告、跟踪器、钓鱼网站和恶意软件               | [DoH/DoT][tiarap-dns-profile]       |
-| [我的加密DNS合集][personal-dns]                  | 🇨🇳    | 否   | 个人常用 DoH/DoT 合集（19 条线路，含去广告节点）                  | [DoH/DoT][personal-dns-profile]      |
+| [我的加密DNS合集][personal-dns]                  | 🇨🇳    | 否   | 个人常用 DoH/DoT 合集（自动从 dns.txt 生成）                       | [DoH/DoT][personal-dns-profile]      |
 
 ## 安装
 
@@ -143,7 +143,7 @@ New-Guid
 [keweondns]: https://forum.xda-developers.com/t/keweondns-info-facts-and-what-is-keweon-actually.4576651/
 [keweondns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/keweondns.mobileconfig
 [mullvad-dns]: https://mullvad.net/help/dns-over-https-and-dns-over-tls/
-[mullvad-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/mullvad-dns.mobileconfig
+[mullvad-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/mullvad.mobileconfig
 [nextdns]: https://nextdns.io/
 [nextdns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/nextdns.mobileconfig
 [opendns]: https://support.opendns.com/hc/articles/360038086532
@@ -151,8 +151,8 @@ New-Guid
 [quad9-dns]: https://www.quad9.net/news/blog/doh-with-quad9-dns-servers/
 [quad9-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/quad9-dns.mobileconfig
 [quad101-dns]: https://101.101.101.101/
-[quad101-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/quad101-dns.mobileconfig
+[quad101-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/quad101.mobileconfig
 [tiarap-dns]: https://doh.tiar.app
-[tiarap-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/tiarap-dns.mobileconfig
+[tiarap-dns-profile]: https://github.com/francis-zhao/secure-dns/raw/master/profiles/tiarap.mobileconfig
 [personal-dns]: https://github.com/qq5460168/secure-dns
-[personal-dns-profile]: https://github.com/qq5460168/secure-dns/raw/master/profiles/personal-dns.mobileconfig
+[personal-dns-profile]: https://github.com/qq5460168/secure-dns/raw/master/profiles/多个DNS.mobileconfig
