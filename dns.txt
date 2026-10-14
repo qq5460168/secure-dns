@@ -1,0 +1,23 @@
+# 我的加密 DNS 节点清单
+# 格式：名称 | 协议 | 地址（DoT 默认 853 端口）
+# 新增节点：照下面加一行即可
+
+18Bit          | DoH | https://doh.18bit.cn/dns-query
+关圣去广告     | DoH | https://2026.dns1.top/dns-query
+阿里云         | DoH | https://dns.alidns.com/dns-query
+冷莫(纯IPv6)   | DoT | addnspro.trli.club:853
+易安云网联     | DoT | bl-dns.yiancloud.com.cn:853
+ALEX           | DoT | ns1.amazehome.xyz:853
+酷安DDIF童话镇 | DoT | basedd.site:853
+酷安DDIF童话镇 | DoH | https://basedd.site/dns-query
+清新云         | DoT | dns.ipv4dns.com:853
+浮风           | DoT | FFDNS.ICU:853
+枫林           | DoT | dns.sofmed.cn:853
+枫林           | DoH | https://dns.sofmed.cn/dns-query
+酷安那个谁520  | DoT | ku-an.lyq.916899380.xyz:853
+快点           | DoT | dns.quickso.cn:853
+宁芙浪谣       | DoT | dns.seek.ovh:853
+舟摇客         | DoH | https://adlong.top:3443/dns-query/gongyong
+舟摇客         | DoT | adlong.top:853
+234实验室      | DoT | dns.23-4.cn:853
+234实验室      | DoH | https://dns.23-4.cn/dns-query
