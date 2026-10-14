@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""根据仓库根目录的 dns.txt 重新生成 profiles/personal-dns.mobileconfig。
+"""根据仓库根目录的 dns.txt 重新生成 profiles/多个DNS.mobileconfig。
 
 dns.txt 每行格式：  名称 | DoH/DoT | 地址
   - DoH 地址填完整 https URL
@@ -17,7 +17,7 @@ import uuid
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "dns.txt")
-OUT = os.path.join(ROOT, "profiles", "personal-dns.mobileconfig")
+OUT = os.path.join(ROOT, "profiles", "多个DNS.mobileconfig")
 
 OUTER_UUID = "e63b30e4-dadb-4005-bfcf-c9ff40e434ef"
 OUTER_ID = "660db1b9-de9c-48bb-bb46-a64d827d9a40"
